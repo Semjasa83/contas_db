@@ -7,9 +7,9 @@ from django.shortcuts import get_object_or_404
 from rest_framework import viewsets
 
 from contas_db.models import Contact
-from contas_db.api.serializers import ContactSerializer
+from .serializers import ContactSerializer
 
 
-class ContactViewSet(viewsets.ModelViewSet): # viewset ModelViewSet
+class ContactViewSet(viewsets.ModelViewSet):
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer

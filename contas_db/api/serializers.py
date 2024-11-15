@@ -15,4 +15,5 @@ class ContactSerializer(serializers.ModelSerializer):
                   'country',
                   'note',
                   'created_at',
-                  'updated_at')
+                  'updated_at'
+                  )
