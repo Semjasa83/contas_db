@@ -9,10 +9,6 @@ class ContactSerializer(serializers.ModelSerializer):
                   'name',
                   'email',
                   'phone',
-                  'street',
-                  'city',
-                  'zip',
-                  'country',
                   'note',
                   'created_at',
                   'updated_at'
