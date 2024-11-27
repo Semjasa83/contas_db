@@ -11,6 +11,7 @@ class ContactSerializer(serializers.ModelSerializer):
                   'email',
                   'phone',
                   'note',
+                  'color',
                   'created_at',
                   'updated_at'
                   )

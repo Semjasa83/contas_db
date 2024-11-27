@@ -7,7 +7,7 @@ class Contact(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=30, blank=True, null=True)
     note = models.CharField(max_length=1000, blank=True, null=True)
-    color = models.CharField(max_length=150, default='hsl(92, 70%, 84%)')
+    color = models.CharField(max_length=150, default='hsl(202, 70%, 85%)')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
