@@ -1,4 +1,4 @@
-from django.urls import include, path
+from django.urls import path, include
 from .views import ContactViewSet
 
 from rest_framework import routers
