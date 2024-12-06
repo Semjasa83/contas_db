@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'contas_db',
     'contas',
     'user_auth_app',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
