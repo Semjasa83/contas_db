@@ -1,17 +1,13 @@
 from rest_framework import serializers
-from user_auth_app.models import UserProfile
+from django.contrib.auth.models import User
 
 class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = UserProfile
+        model = User
         fields = (
-            "id",
             "username",
             "email",
             "password",
-            "confirm_password",
-            "created_at",
-            "updated_at"
         )
         extra_kwargs = {
             'password': {'write_only': True}

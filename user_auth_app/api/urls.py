@@ -1,5 +1,6 @@
 from django.urls import include, path
 from .views import RegistrationView
+from .utils import activate_user
 
 from rest_framework import routers
 
@@ -8,5 +9,5 @@ from rest_framework import routers
 
 urlpatterns = [
     path('register/', RegistrationView.as_view()),
-    # path('activate/<str:token>/', activate_user, name='activate_user'),
+    path('activate/<str:token>/', activate_user, name='activate_user'),
 ]

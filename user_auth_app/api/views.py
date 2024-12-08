@@ -1,26 +1,29 @@
-from user_auth_app.api.utils import emailAuthentification
-from user_auth_app.models import UserProfile
+from user_auth_app.api.utils import email_authentification
 from .serializers import RegistrationSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from rest_framework.authtoken.models import Token
+from rest_framework.permissions import AllowAny
+
+
 
 class RegistrationView(APIView):
 
+    permission_classes = [AllowAny]
     serializer_class = RegistrationSerializer
     
     def post(self, request, *args, **kwargs):
-        serialiser = RegistrationSerializer(data=request.data)
-        if serialiser.is_valid():
-            serialiser.save()
-            user = User.objects.get(email=serialiser.data['email'])
+        serializer = RegistrationSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            user = get_user_model(data=request.data['email'])
             token, created = Token.objects.get_or_create(user=user)
-            emailAuthentification(user, token)
+            email_authentification(user, token)
             
-            return Response(serialiser.data, status=status.HTTP_201_CREATED)
-        if serialiser.errors:
-            return Response(serialiser.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        if serializer.errors:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
