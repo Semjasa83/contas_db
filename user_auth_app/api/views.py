@@ -25,7 +25,7 @@ def login_view(request):
     if user:
         token, _ = Token.objects.get_or_create(user=user)
         return Response({
-            'token': token.key,
+            'Bearer': token.key,
             'first_name': user.first_name,
             'last_name': user.last_name
         })

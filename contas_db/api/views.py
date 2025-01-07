@@ -8,10 +8,12 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
 from contas_db.models import Contact
+from .authentication import BearerAuthentication
 from .serializers import ContactSerializer
 
 
 class ContactViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
+    authentication_classes = [BearerAuthentication]
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
