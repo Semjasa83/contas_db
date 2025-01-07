@@ -4,11 +4,16 @@ from rest_framework import serializers
 class RegisterSerializer(serializers.ModelSerializer):
     # password = serializers.CharField(write_only=True)
     confirm_password = serializers.CharField(write_only=True)
+    first_name = serializers.CharField(required=False)
+    last_name = serializers.CharField(required=False)
+    email = serializers.EmailField(required=False)
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'password', 'confirm_password', ]
-        extra_kwargs = {'password': {'write_only': True}}
+        fields = ['username', 'password', 'confirm_password', 'first_name', 'last_name', 'email']
+        extra_kwargs = {
+            'password': {'write_only': True},
+            }
 
     def validate(self, data):
         if data['password'] != data['confirm_password']:
