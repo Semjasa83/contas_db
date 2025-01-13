@@ -8,9 +8,10 @@ class Contact(models.Model):
     phone = models.CharField(max_length=30, blank=True, null=True)
     note = models.CharField(max_length=1000, blank=True, null=True)
     color = models.CharField(max_length=150, default='hsl(202, 70%, 85%)')
+    company = models.CharField(max_length=255, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 
     def __str__(self):
-        return self.name
+        return self.firstname + ' ' + self.lastname

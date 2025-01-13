@@ -13,6 +13,7 @@ class ContactSerializer(serializers.ModelSerializer):
             "phone",
             "note",
             "color",
+            "company",
             "created_at",
             "updated_at",
         )
