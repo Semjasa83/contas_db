@@ -1,13 +1,15 @@
 from django.urls import include, path
-from .views import ContactViewSet
+from .views import ContactViewSet, NoteViewSet
 
 from rest_framework import routers
 
-router = routers.SimpleRouter()
-router.register(r'contacts', ContactViewSet)
+contact_router = routers.SimpleRouter()
+contact_router.register(r'contacts', ContactViewSet)
+
+note_router = routers.SimpleRouter()
+note_router.register(r'notes', NoteViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
-    # path('contacts/', ContactViewSet.as_view()),
-    # path('contacts/<int:pk>/', ContactViewSet.as_view(), name='contact-detail'),
+    path('', include(contact_router.urls)),
+    path('', include(note_router.urls)),
 ]
