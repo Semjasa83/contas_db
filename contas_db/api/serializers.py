@@ -31,7 +31,6 @@ class NoteSerializer(serializers.ModelSerializer):
             "note",
             "start_date",
             "end_date",
-            "color",
             "priority",
             "created_at",
             "updated_at",

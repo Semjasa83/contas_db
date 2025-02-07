@@ -30,7 +30,6 @@ class Note(models.Model):
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
     priority = models.PositiveSmallIntegerField()
-    color = models.CharField(max_length=150, default='hsl(202, 70%, 85%)')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
